@@ -1,14 +1,17 @@
 # Build dotnet programs
-# 
+#
 # prerequisites:
 # - cross/module depends on native/dotnet only
 # - module does not require kernel (REQUIRE_KERNEL)
-# 
+#
 # remarks:
 # - Restriction for minimal DSM version is not supported (toolchains are not used for dotnet builds)
 # - CONFIGURE_TARGET is not supported/bypassed
 # - most content is taken from spksrc.go.mk and modified for dotnet build and install
-# 
+#
+# NOTE: Don't strip the self-contained binary!
+#    aka don't use 'bin' for the PLIST use 'rsc' instead.
+#    It *will* break the program.
 
 # Common makefiles
 include ../../mk/spksrc.common.mk

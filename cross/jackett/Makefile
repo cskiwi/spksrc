@@ -2,7 +2,7 @@ PKG_NAME = Jackett
 PKG_VERS = 0.16.2294
 PKG_EXT = tar.gz
 PKG_DIST_NAME = v$(PKG_VERS).$(PKG_EXT)
-PKG_DIST_FILE = $(PKG_NAME)-$(PKG_VERS).$(PKG_EXT)
+PKG_DIST_FILE = $(PKG_NAME)-dotnet-$(PKG_VERS).$(PKG_EXT)
 PKG_DIST_SITE = https://github.com/Jackett/Jackett/archive
 PKG_DIR = Jackett-$(PKG_VERS)/src
 
@@ -14,7 +14,7 @@ LICENSE  = GNU GPL v2
 
 DOTNET_OPTIMIZE = 1
 DOTNET_PACKAGE_NAME = Jackett.Server
-
+DOTNET_OUTPUT_PATH = share
 SET_VERSION = /p:AssemblyVersion=$(PKG_VERS) /p:FileVersion=$(PKG_VERS) /p:InformationalVersion=$(PKG_VERS) /p:Version=$(PKG_VERS)
 DOTNET_BUILD_PROPERTIES += $(SET_VERSION)
 

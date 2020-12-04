@@ -67,7 +67,7 @@ endif
 
 DOTNET_BUILD_ARGS += --runtime $(DOTNET_OS)-$(DOTNET_ARCH)
 
-DOTNET_BUILD_ARGS += --output="$(STAGING_INSTALL_PREFIX)"
+DOTNET_BUILD_ARGS += --output="$(STAGING_INSTALL_PREFIX)/$(DOTNET_OUTPUT_PATH)"
 
 ifeq ($(strip $(DOTNET_OPTIMIZE)),1)
 # PublishReadyToRun improve the startup time of your .NET Core application
