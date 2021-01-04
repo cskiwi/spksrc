@@ -1,10 +1,10 @@
-SPK_NAME = nzbdrone
+SPK_NAME = sonarr
 SPK_VERS = $(shell date +%Y%m%d)
 SPK_REV = 18
 SPK_ICON = src/sonarr.png
 
 # Mono not supported on ppc platforms. C.f. cross/mono/Makefile and references therein for details.
-UNSUPPORTED_ARCHS = $(PPC_ARCHS)
+UNSUPPORTED_ARCHS = $(PPC_ARCHES)
 
 DEPENDS = cross/busybox cross/curl cross/mediainfo cross/sqlite cross/sonarr
 

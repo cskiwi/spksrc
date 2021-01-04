@@ -1,5 +1,5 @@
 SPK_NAME = hassio
-SPK_VERS = 20200910
+SPK_VERS = $(shell date +%Y%m%d)
 SPK_REV = 2
 SPK_ICON = src/$(SPK_NAME).png
 SPK_DEPENDS = "Docker>=18.09.0-0506"
@@ -23,6 +23,8 @@ LICENSE    = Apache License 2.0
 HELPURL    = https://www.home-assistant.io/docs/
 
 WIZARDS_DIR = src/wizard/
+SERVICE_WIZARD_SHARE = wizard_share_folder
+SERVICE_USER = auto
 
 SERVICE_SETUP = src/service-setup.sh
 

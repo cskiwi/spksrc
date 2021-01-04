@@ -1,16 +1,27 @@
 CFG_FILE="/usr/local/${SYNOPKG_PKGNAME}/etc/hassio.json"
 
+DATA_DIR="${wizard_volume}/${wizard_share_folder}/${wizard_folder_name}"
+
+service_preinst ()
+{
+    if [ "${SYNOPKG_PKG_STATUS}" == "INSTALL" ]; then
+            # Check directory
+        if [ ! -d ${DATA_DIR} ]; then
+            echo "Hassio ${DATA_DIR} does not exist."
+            exit 1
+        fi
+    fi
+
+    exit 0
+}
+
 service_postinst() {
     if [ "${SYNOPKG_PKG_STATUS}" == "INSTALL" ]; then
-        DATA_DIR="${wizard_share_path}/${wizard_folder_name}"
-        # Fix install directory
-        mkdir -p "${DATA_DIR}"
-
         HOMEASSISTANT_DOCKER="homeassistant/qemux86-64-homeassistant"
         HASSIO_DOCKER="homeassistant/amd64-hassio-supervisor"
 
         # Read infos from web
-        URL_VERSION="https://www.home-assistant.io/version.json"
+        URL_VERSION="https://version.home-assistant.io/stable.json"
         HASSIO_VERSION=$(curl -s $URL_VERSION | jq -e -r '.supervisor')
 
         # Pull supervisor image
